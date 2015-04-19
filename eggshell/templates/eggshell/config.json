@@ -1,0 +1,9 @@
+{
+	"scss_folder": "/lib/scss/",
+	"css_folder": "/lib/css/",
+	"files_to_compile": [
+		{ "source":"main.scss","compiled":"main.css" },
+		{ "source":"blog.scss","compiled":"blog.css" }
+	],
+	"css_format": "scss_formatter_compressed"
+}
