@@ -33,7 +33,7 @@ Still to work out a way to proof things before compiling, however these are only
 ### Theme Settings
 There are no required Perch fields for your theme, you can make the variables you need to and use any of the Perch field types to achieve this. In the example we use the color field type.
 ```
-$bgcolor: <perch:theme type="color" id="bgcolor" label="Background" />;
+$bgcolor: <perch:eggshell type="color" id="bgcolor" label="Background" />;
 ```
 Your template will be compiled into a scss file so make sure the markup in this template reflects that.
 
