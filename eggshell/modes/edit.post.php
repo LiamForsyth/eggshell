@@ -7,7 +7,6 @@
 
         include('_subnav.php');
 
-        echo $HTML->heading1($heading1);
         if ($message) echo $message; 
 
         $template_help_html = $Template->find_help();
