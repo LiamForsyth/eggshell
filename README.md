@@ -32,25 +32,35 @@ Still to work out a way to proof things before compiling, however these are only
 
 ### Theme Settings
 There are no required Perch fields for your theme, you can make the variables you need to and use any of the Perch field types to achieve this. In the example we use the color field type.
-```$bgcolor: <perch:theme type="color" id="bgcolor" label="Background" />;```
+```
+$bgcolor: <perch:theme type="color" id="bgcolor" label="Background" />;
+```
 Your template will be compiled into a scss file so make sure the markup in this template reflects that.
 
 ### Configuration
 Within your templates for `theme` include your config.json which will contain the settings for your Theme settings.
 
-```"scss_folder": "/lib/scss/"```
+```
+"scss_folder": "/lib/scss/"
+```
 Set the folder which contains your scss files. This folder only needs to be 'readable' within here add a writeable folder named 'perch'.
 
-```"css_folder": "/lib/css/"```
+```
+"css_folder": "/lib/css/"
+```
 Set the folder you wish to compile files to. This folder will need to be writeable.
 
-```"files_to_compile": [
+```
+"files_to_compile": [
 		{ "source":"main.scss","compiled":"main.css" },
 		{ "source":"blog.scss","compiled":"blog.css" }
-	]```
+	]
+```
 Enter the file names of the source and the destination you would like compilable files to have. Any file not noted will not be compiled by Perch.
 
-```"css_format": "scss_formatter_compressed"```
+```
+"css_format": "scss_formatter_compressed"
+```
 Set the formatting of the compiled css, options are 'scss_formatter', 'scss_formatter_nested' and 'scss_formatter_compressed'.
 
 ### Thanks
