@@ -1,0 +1,35 @@
+@import('perch/perch');
+
+body{
+	background:$bgcolor;
+	color:$textcolor;
+	padding:40px;
+	font-family:Helvetica;
+	line-height:1.5;
+}
+h2{
+	color:$primarycolor;
+}
+a{
+	background:$secondarycolor;
+	display:inline-block;
+	padding:20px 40px;
+	color:#fff;
+	text-decoration:none;
+	border-radius:4px;
+	border:1px solid darken($secondarycolor, 5%);
+	text-shadow: 0 1px 0 darken($secondarycolor, 8%);
+	font-weight:600;
+	cursor:pointer;
+}
+a:hover{
+	background:	darken($secondarycolor, 5%);
+	border-color:darken($secondarycolor, 10%);
+	text-shadow: 0 1px 0 darken($secondarycolor, 15%);
+}
+hr{
+	border:0;
+	height:2px;
+	background:$textcolor;
+	opacity:0.25;
+}
