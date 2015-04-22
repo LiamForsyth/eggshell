@@ -4,11 +4,18 @@ body{
 	background:$bgcolor;
 	color:$textcolor;
 	padding:40px;
-	font-family:Helvetica;
+	font-family:$bodyfont;
 	line-height:1.5;
+}
+h1{
+	font-family:$headfont;
+	margin:0;
+	font-size:42px;
 }
 h2{
 	color:$primarycolor;
+	font-family:$headfont;
+	margin:0;
 }
 a{
 	background:$secondarycolor;

@@ -9,22 +9,13 @@ One of the great things about Perch is how you control the level of involvement 
 - SCSS syntax
 - Support for SCSS 3.2.12 and below
 
-## Release Notes
-
-#### Eggshell 0.1 (Developer Preview?) + Compiling Errors
-Initial Release and still polishing and testing things. 
-
-Still to work out a way to proof things before compiling, however these are only shown while developing things as it may fall into one of these situations:
-- If you have added a new field to the `settings.html` template, either make sure you refresh the admin area before attempting to save. 
-- If you have a field that has an empty value when saving (compiling). You could make this field required or have a `<perch:if>` fallback.
-- You are attempting to compile anything that is not SCSS or above version 3.2.12. Check mixins that are also being compiled are not causing hiccups either. Will try to keep track on any compilers that update their supported versions.
-
 ## Setup
 1. Install the `Theme` app inside `perch/addons/apps`. 
-4. Setup your `settings.html` and `config.json file`. See next two sections.
+4. Setup your `settings.html` to have the required fields.
 5. Within Perch Admin, select the Theme app. 
 6. You will be presented with the available theme variables.
 7. Save changes to update these variables as well as compile SCSS files.
+8. Enable the Developer Tools in Perch admin to allow you to save these variables to a `theme.json` which Perch would use on the install of a theme.
 
 ### Stylesheet Setup
 1. Include `@import('perch/perch');` in your stylesheet.
@@ -62,6 +53,22 @@ Enter the file names of the source and the destination you would like compilable
 "css_format": "scss_formatter_compressed"
 ```
 Set the formatting of the compiled css, options are 'scss_formatter', 'scss_formatter_nested' and 'scss_formatter_compressed'.
+
+## Release Notes
+
+#### Eggshell 0.2: Developer Preview
+- Can now save your theme.json for sharing. This file is now moved to the same folder as the `perch/perch.scss`. This option is available if you select this checkbox in the Admin settings.
+- You can reset each variable to the default (`theme.json`) either one by one or all in one (has a confirm alert).
+- Won't compile if no changes are made. But still can update the default variables.
+- Updated the default template files to show off some variables for Google fonts and dividers. 
+
+#### Eggshell 0.1: Developer Preview
+Initial Release and still polishing and testing things. 
+
+Still to work out a way to proof things before compiling, however these are only shown while developing things as it may fall into one of these situations:
+- If you have added a new field to the `settings.html` template, either make sure you refresh the admin area before attempting to save. 
+- If you have a field that has an empty value when saving (compiling). You could make this field required or have a `<perch:if>` fallback.
+- You are attempting to compile anything that is not SCSS or above version 3.2.12. Check mixins that are also being compiled are not causing hiccups either. Will try to keep track on any compilers that update their supported versions.
 
 ### Thanks
 

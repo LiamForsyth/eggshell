@@ -1,4 +1,9 @@
-$bgcolor: <perch:eggshell type="color" id="bgcolor" label="Background" />;
-$textcolor: <perch:eggshell type="color" id="textcolor" label="Text" />;
+$bgcolor: <perch:eggshell type="color" id="bgcolor" label="Background" divider-before="Color Schemes" />;
+$textcolor: <perch:eggshell type="color" id="textcolor" label="Text"  />;
 $primarycolor: <perch:eggshell type="color" id="primarycolor" label="Primary" />;
-$secondarycolor: <perch:eggshell type="color" id="secondarycolor" label="Secondary" />;
+$secondarycolor: <perch:eggshell type="color" id="secondarycolor" label="Secondary"  />;
+
+@import url(http://fonts.googleapis.com/css?family=<perch:eggshell id="bgfont" type="select" label="Main Body Font" options="Lato, Lora, Noto+Sans, Open+Sans, Roboto" allowempty="false"  divider-before="Font Families" />|<perch:eggshell id="headfont" type="select" label="Heading Font" options="Lato, Lora, Noto+Sans, Open+Sans, Roboto" allowempty="false" />);
+
+$bodyfont: <perch:eggshell id="bgfont" type="select" label="Main Body Font" options="Lato, Lora, Noto+Sans, Open+Sans, Roboto" allowempty="false"  divider-before="Font Families" />;
+$headfont: <perch:eggshell id="headfont" type="select" label="Heading Font" options="Lato, Lora, Noto+Sans, Open+Sans, Roboto" allowempty="false" />;
