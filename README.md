@@ -3,6 +3,8 @@
 
 In the search for a way to create customisable themes for the Perch CMS comes this app created to allow for user generated variables which can then be used in your SCSS files, so we created 'Eggshell', a Perch App to allow you to create themes/skins for Perch using variables editable within the Perch admin area.
 
+![](https://github.com/github/LiamForsyth/eggshell/master/eggshell_prev.png)
+
 One of the great things about Perch is how you control the level of involvement within your development setup it is. We wanted to carry this over and make sure Perch provides you with what you need and not the other way around. We compile all the variables you want to be controllable into a SCSS file which you include into your own SCSS files. You can then work and compile using your favourite method (Codekit, Grunt, etc.). Perch will also be able to compile specified SCSS files to allow these variables to be dynamic allowing changes during production. 
 
 ## Requirements for SCSS compiler (SCSSPHP)
