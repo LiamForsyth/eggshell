@@ -32,13 +32,17 @@ Provided is an example set of scss and css files to showcase the capabilities. E
 
 #### Stylesheet Setup 
 Example File:
-```lib/scss/main.scss```
+```
+lib/scss/main.scss
+```
 
 Inside your `scss` files where you want access to variables set in Perch include `@import('eggshell_variables/perch');` at the beginning. You can include this in as many scss files as you require and the example file included can be replaced if you wish. Make sure that this `eggshell_variables` folder is alongside your scss files.
 
 #### Editable Variables 
 File:
-```perch/templates/eggshell/settings.html```
+```
+perch/templates/eggshell/settings.html
+```
 
 This is a typical Perch Template. Here we use the Perch Tag structure with the tag name `perch:eggshell`. Instead of html code however we use scss. For example:
 ```
@@ -48,7 +52,9 @@ This example file can be edited however is required.
 
 #### Configurations
 File: 
-```perch/templates/eggshell/config.json```
+```
+perch/templates/eggshell/config.json
+```
 
 This file contains configuration for how Perch will compile scss files. This is important to make sure the files that use variables from Perch are compiled to the right directory.
 
@@ -58,17 +64,25 @@ This example file can be edited however is required.
 
 #### Default Variables
 Example File:
-```lib/scss/eggshell_variables/theme.json```
+```
+lib/scss/eggshell_variables/theme.json
+```
+
 These are the variables that Perch will read when you first load the theme variables. They can also be the variables that you reset to within the admin panel. You can write these manually, or you can save them via Perch. To save them, check the `Developer Tools` option inside Perch's settings panel. This will allow a checkbox option to `Update Default Variables` when you next save.
 
 ## Possibile Errors
 
 If you receive an error while saving via Perch this may be related to the actual scss or permissions.
 
-```Fatal error: Uncaught exception 'Exception' with message``` 
+```
+Fatal error: Uncaught exception 'Exception' with message
+``` 
+
 This error will be followed by a compiling error, this may be that you have not included `@import('eggshell_variables/perch');` correctly, or you are missing a variable in your `settings.html` template. Also make sure you are using scss syntax and SCSS 3.2.12 or below as part of the compiler requirements.
 
-```Warning: file_put_contents```
+```
+Warning: file_put_contents
+```
 This error will note a path to a file it has not been able to save to. Make sure that the css files are writable if they are not already. Assuming you have compiled the scss files via Perch this should not be an issue. If you have manually compiled these files the css files my not be writable.
 
 ## Release Notes
