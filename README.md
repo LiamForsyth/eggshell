@@ -3,60 +3,80 @@
 
 In the search for a way to create customisable themes for the Perch CMS comes this app created to allow for user generated variables which can then be used in your SCSS files, so we created 'Eggshell', a Perch App to allow you to create themes/skins for Perch using variables editable within the Perch admin area.
 
-![](https://raw.githubusercontent.com/LiamForsyth/eggshell/master/eggshell_prev.png)
-
 One of the great things about Perch is how you control the level of involvement within your development setup it is. We wanted to carry this over and make sure Perch provides you with what you need and not the other way around. We compile all the variables you want to be controllable into a SCSS file which you include into your own SCSS files. You can then work and compile using your favourite method (Codekit, Grunt, etc.). Perch will also be able to compile specified SCSS files to allow these variables to be dynamic allowing changes during production. 
 
 ## Requirements for SCSS compiler (SCSSPHP)
 - SCSS syntax
 - Support for SCSS 3.2.12 and below
 
-## Setup
-1. Install the `Theme` app inside `perch/addons/apps`. 
-4. Setup your `settings.html` to have the required fields.
-5. Within Perch Admin, select the Theme app. 
-6. You will be presented with the available theme variables.
-7. Save changes to update these variables as well as compile SCSS files.
-8. Enable the Developer Tools in Perch admin to allow you to save these variables to a `theme.json` which Perch would use on the install of a theme.
+## Installation
 
-### Stylesheet Setup
-1. Include `@import('perch/perch');` in your stylesheet.
-2. Link your compiled stylesheet into, your HTML the way you normally would. Example > `<link href="/lib/css/main.css" rel="stylesheet" />` 
+Once you have downloaded or cloned this repository, make sure you have moved these contents to your development folder along side your `Perch` Folder. 
 
-### Theme Settings
-There are no required Perch fields for your theme, you can make the variables you need to and use any of the Perch field types to achieve this. In the example we use the color field type.
-```
-$bgcolor: <perch:eggshell type="color" id="bgcolor" label="Background" />;
-```
-Your template will be compiled into a scss file so make sure the markup in this template reflects that.
+If you don't wish to use the Grunt Task Runner to setup files and folders then please skip to the **Manual Installation** section. 
 
-### Configuration
-Within your templates for `theme` include your config.json which will contain the settings for your Theme settings.
+1. Make sure you have Node installed on your system - instructions can be found on their [official website](http://nodejs.org)
+2. Install Grunt - instructions can be found on their [official website](http://gruntjs.com/getting-started)
+3. Within your project directory run: ```npm install```
+4. Once this has successfully completed run: ```grunt``` This will run several task including adding the app to Perch. 
+5. Now login or setup Perch and you will see the new app 'Theme' is selectable.
 
-```
-"scss_folder": "/lib/scss/"
-```
-Set the folder which contains your scss files. This folder only needs to be 'readable' within here add a writeable folder named 'perch'.
+## Manual Installation
+1. Move the `eggshell` folder to `perch/addons/apps` 
+2. Add `eggshell` to the app list array within `perch/config/apps.php`. For more information on installing Perch Apps visit the [official documentation](https://docs.grabaperch.com/docs/installing-perch/installing-apps/)
+3. Copy the `eggshell/templates/eggshell` folder to the `perch/templates` folder.
+4. We have several files that require to have writable permissions so that Perch can write variables as well as compile scss files. Make sure that `lib/css`, `lib/scss` and `lib/scss/perch/` folders and contents are writable.
 
-```
-"css_folder": "/lib/css/"
-```
-Set the folder you wish to compile files to. This folder will need to be writeable.
+## Usage
+Provided is an example set of scss and css files to showcase the capabilities. Each section has the path of an example file
 
-```
-"files_to_compile": [
-		{ "source":"main.scss","compiled":"main.css" },
-		{ "source":"blog.scss","compiled":"blog.css" }
-	]
-```
-Enter the file names of the source and the destination you would like compilable files to have. Any file not noted will not be compiled by Perch.
+#### Stylesheet Setup 
+Example File:
+```lib/scss/main.scss```
 
+Inside your `scss` files where you want access to variables set in Perch include `@import('eggshell_variables/perch');` at the beginning. You can include this in as many scss files as you require and the example file included can be replaced if you wish. Make sure that this `eggshell_variables` folder is alongside your scss files.
+
+#### Editable Variables 
+File:
+```perch/templates/eggshell/settings.html```
+
+This is a typical Perch Template. Here we use the Perch Tag structure with the tag name `perch:eggshell`. Instead of html code however we use scss. For example:
 ```
-"css_format": "scss_formatter_compressed"
+$variable: <perch:eggshell type="color" id="color" label="Color" />;
 ```
-Set the formatting of the compiled css, options are 'scss_formatter', 'scss_formatter_nested' and 'scss_formatter_compressed'.
+This example file can be edited however is required.
+
+#### Configurations
+File: 
+```perch/templates/eggshell/config.json```
+
+This file contains configuration for how Perch will compile scss files. This is important to make sure the files that use variables from Perch are compiled to the right directory.
+
+Formatting of the compiled css can be set to 'scss_formatter', 'scss_formatter_nested' and 'scss_formatter_compressed'.
+
+This example file can be edited however is required.
+
+#### Default Variables
+Example File:
+```lib/scss/eggshell_variables/theme.json```
+These are the variables that Perch will read when you first load the theme variables. They can also be the variables that you reset to within the admin panel. You can write these manually, or you can save them via Perch. To save them, check the `Developer Tools` option inside Perch's settings panel. This will allow a checkbox option to `Update Default Variables` when you next save.
+
+## Possibile Errors
+
+If you receive an error while saving via Perch this may be related to the actual scss or permissions.
+
+```Fatal error: Uncaught exception 'Exception' with message``` 
+This error will be followed by a compiling error, this may be that you have not included `@import('eggshell_variables/perch');` correctly, or you are missing a variable in your `settings.html` template. Also make sure you are using scss syntax and SCSS 3.2.12 or below as part of the compiler requirements.
+
+```Warning: file_put_contents```
+This error will note a path to a file it has not been able to save to. Make sure that the css files are writable if they are not already. Assuming you have compiled the scss files via Perch this should not be an issue. If you have manually compiled these files the css files my not be writable.
 
 ## Release Notes
+
+#### Eggshell 0.3
+- Updated some paths and fixed a few js errors.
+- Updated readme
+- Included a gruntfile for easy install
 
 #### Eggshell 0.2: Developer Preview
 - Can now save your theme.json for sharing. This file is now moved to the same folder as the `perch/perch.scss`. This option is available if you select this checkbox in the Admin settings.

@@ -1,0 +1,11 @@
+{
+  "name": "Eggshell",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-chmod": "latest",
+    "grunt-shell": "latest",
+    "grunt-string-replace": "latest",
+    "grunt-contrib-copy":"latest"
+  }
+}

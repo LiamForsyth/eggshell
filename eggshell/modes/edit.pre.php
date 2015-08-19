@@ -15,7 +15,7 @@
         $Themes->attempt_install();
         // Get values from theme.json
         $data['themeID'] = 1;
-        $data['themeDynamicFields'] = file_get_contents($_SERVER['DOCUMENT_ROOT'] . $json['scss_folder'] . 'perch/theme.json');
+        $data['themeDynamicFields'] = file_get_contents($_SERVER['DOCUMENT_ROOT'] . $json['scss_folder'] . 'eggshell_variables/theme.json');
         $new_theme = $Themes->create($data);
     }
     // Setup SCSS Compiler
@@ -48,14 +48,14 @@
         $dynamic_fields = $Form->receive_from_template_fields($Template, $previous_values, $Themes, $Theme);
         $data['themeDynamicFields'] = PerchUtil::json_safe_encode($dynamic_fields);
         if($default) {
-            file_put_contents($_SERVER['DOCUMENT_ROOT'] . $json['scss_folder'] . 'perch/theme.json' , $data['themeDynamicFields']);
+            file_put_contents($_SERVER['DOCUMENT_ROOT'] . $json['scss_folder'] . 'eggshell_variables/theme.json' , $data['themeDynamicFields']);
         }
         if (is_object($Theme)) {
             $result = $Theme->update($data);
             // SCSS Compiling
             // Get the submitted variables and export to scss
             $sassvar = $Template->render($Theme);
-            file_put_contents($_SERVER['DOCUMENT_ROOT'] . $json['scss_folder'] . 'perch/perch.scss', $sassvar);
+            file_put_contents($_SERVER['DOCUMENT_ROOT'] . $json['scss_folder'] . 'eggshell_variables/perch.scss', $sassvar);
             // Get the list of files that we need to compile with the new perch.scss
             $scssfile = $json['files_to_compile'];
             foreach ($scssfile as $file_key => $file) {

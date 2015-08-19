@@ -1,4 +1,4 @@
-$.getJSON("../../../../" + sassfolder + "perch/theme.json", function( json ) {
+$.getJSON(sassfolder + "eggshell_variables/theme.json", function( json ) {
 	$.each(json, function(index, element) { 
 		$('#perch_' + index).attr('data-default', element );
 	});
