@@ -15,17 +15,17 @@ Once you have downloaded or cloned this repository, make sure you have moved the
 
 If you don't wish to use the Grunt Task Runner to setup files and folders then please skip to the **Manual Installation** section. 
 
-1. Make sure you have Node installed on your system - instructions can be found on their [official website](http://nodejs.org)
-2. Install Grunt - instructions can be found on their [official website](http://gruntjs.com/getting-started)
-3. Within your project directory run: ```npm install```
-4. Once this has successfully completed run: ```grunt``` This will run several task including adding the app to Perch. 
-5. Now login or setup Perch and you will see the new app 'Theme' is selectable.
+1. Make sure you have Node and Grunt installed on your system - instructions can be found on their respective sites: [Node](http://nodejs.org) and [Grunt](http://gruntjs.com/getting-started)
+2. Within your project directory run: ```npm install```
+3. Once this has successfully completed run: ```grunt``` This will run several task including adding the app to Perch. 
+4. Now login or setup Perch and you will see the new app 'Theme' is selectable.
 
 ## Manual Installation
 1. Move the `eggshell` folder to `perch/addons/apps` 
 2. Add `eggshell` to the app list array within `perch/config/apps.php`. For more information on installing Perch Apps visit the [official documentation](https://docs.grabaperch.com/docs/installing-perch/installing-apps/)
 3. Copy the `eggshell/templates/eggshell` folder to the `perch/templates` folder.
 4. We have several files that require to have writable permissions so that Perch can write variables as well as compile scss files. Make sure that `lib/css`, `lib/scss` and `lib/scss/perch/` folders and contents are writable.
+5. Now login or setup Perch and you will see the new app 'Theme' is selectable.
 
 ## Usage
 Provided is an example set of scss and css files to showcase the capabilities. Each section has the path of an example file
